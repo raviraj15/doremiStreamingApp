@@ -12,7 +12,7 @@ public class TopUp {
     private Long id;
     private String name;
     private int maxDevices;
-    private double price;
+    private double TopUpPrice;
 	public Long getId() {
 		return id;
 	}
@@ -31,11 +31,11 @@ public class TopUp {
 	public void setMaxDevices(int maxDevices) {
 		this.maxDevices = maxDevices;
 	}
-	public double getPrice() {
-		return price;
+	public double getTopUpPrice() {
+		return TopUpPrice;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setTopUpPrice(double price) {
+		this.TopUpPrice = price;
 	}
     
     
