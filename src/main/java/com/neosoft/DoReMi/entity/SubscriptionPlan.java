@@ -16,7 +16,7 @@ public class SubscriptionPlan {
     private int duration;
     private double price;
     
-    private int maxDevices = 1; 
+    private int maxDevices = 1; //default device
 
    
 
