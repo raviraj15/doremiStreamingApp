@@ -16,18 +16,17 @@ public class SubscriptionPlan {
     private int duration;
     private double price;
     
-    private int maxDevices = 1; //default device
+   // private int maxDevices = 1; //default device
 
    
 
-    public int getMaxDevices() {
-        return maxDevices;
-    }
-
-    public void setMaxDevices(int maxDevices) {
-        this.maxDevices = maxDevices;
+	/*
+	 * public int getMaxDevices() { return maxDevices; }
+	 * 
+	 * public void setMaxDevices(int maxDevices) { this.maxDevices = maxDevices;
+	 */
   
-    }
+   // }
 	public Long getId() {
 		return id;
 	}

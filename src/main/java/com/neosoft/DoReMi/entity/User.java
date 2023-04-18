@@ -20,7 +20,7 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -40,42 +40,33 @@ public class User {
 		this.email = email;
 	}
 
-	private List<SubscriptionPlan> subscribedPlans = new ArrayList();
-	private TopUp currentTopUp;
-
-	public void subscribe(SubscriptionPlan plan) {
-		subscribedPlans.add(plan);
-	}
-
-	public void addTopUp(TopUp topUp) {
-		if (subscribedPlans.isEmpty()) {
-			throw new RuntimeException("Cannot add top up when no subscription exists");
-		}
-
-		if (currentTopUp != null) {
-			throw new RuntimeException("A top up is already applied to the account");
-		}
-
-		if (topUp.getMaxDevices() <= getMaxDevices()) {
-			throw new RuntimeException("New top up must allow for more devices than the current limit");
-		}
-
-		currentTopUp = topUp;
-	}
-
-	public int getMaxDevices() {
-		int maxDevices = 1; // start with default device limit
-
-		for (SubscriptionPlan plan : subscribedPlans) {
-			if (plan.getMaxDevices() > maxDevices) {
-				maxDevices = plan.getMaxDevices();
-			}
-		}
-
-		if (currentTopUp != null && currentTopUp.getMaxDevices() > maxDevices) {
-			maxDevices = currentTopUp.getMaxDevices();
-		}
-
-		return maxDevices;
-	}
+	/*
+	 * private List<SubscriptionPlan> subscribedPlans = new ArrayList(); private
+	 * TopUp currentTopUp;
+	 * 
+	 * public void subscribe(SubscriptionPlan plan) { subscribedPlans.add(plan); }
+	 * 
+	 * public void addTopUp(TopUp topUp) { if (subscribedPlans.isEmpty()) { throw
+	 * new RuntimeException("Cannot add top up when no subscription exists"); }
+	 * 
+	 * if (currentTopUp != null) { throw new
+	 * RuntimeException("A top up is already applied to the account"); }
+	 * 
+	 * if (topUp.getMaxDevices() <= getMaxDevices()) { throw new
+	 * RuntimeException("New top up must allow for more devices than the current limit"
+	 * ); }
+	 * 
+	 * currentTopUp = topUp; }
+	 * 
+	 * public int getMaxDevices() { int maxDevices = 1; // start with default device
+	 * limit
+	 * 
+	 * for (SubscriptionPlan plan : subscribedPlans) { if (plan.getMaxDevices() >
+	 * maxDevices) { maxDevices = plan.getMaxDevices(); } }
+	 * 
+	 * if (currentTopUp != null && currentTopUp.getMaxDevices() > maxDevices) {
+	 * maxDevices = currentTopUp.getMaxDevices(); }
+	 * 
+	 * return maxDevices; }
+	 */
 }
